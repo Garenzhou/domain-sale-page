@@ -1,0 +1,10 @@
+name: domain-sale
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - Flask>=2.3.0
+    - gunicorn>=21.0.0
