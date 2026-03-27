@@ -9,6 +9,12 @@ A sleek, modern single-page website for listing domain names for sale.
 
 ---
 
+## Screenshot
+
+![Domain Sale Page Screenshot](ui.png)
+
+---
+
 ## Quick Start
 
 Get up and running in 3 steps:
