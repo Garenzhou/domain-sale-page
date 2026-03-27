@@ -185,6 +185,8 @@ tail -f gunicorn.log
 |---------|---------|-------------|
 | `CONTACT_EMAIL` | `your-email@example.com` | Contact email |
 | `PORT` | `80` | Server port |
+| `SHOW_GITHUB` | `true` | Show GitHub link in corner (set to `false` to hide) |
+| `GITHUB_URL` | `https://github.com/Garenzhou/domain-sale-page` | GitHub repository URL |
 
 ---
 

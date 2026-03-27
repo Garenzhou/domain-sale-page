@@ -185,6 +185,8 @@ tail -f gunicorn.log
 |----------|--------|------|
 | `CONTACT_EMAIL` | `your-email@example.com` | 联系邮箱 |
 | `PORT` | `80` | 服务端口 |
+| `SHOW_GITHUB` | `true` | 显示角落的 GitHub 链接（设为 `false` 可隐藏） |
+| `GITHUB_URL` | `https://github.com/Garenzhou/domain-sale-page` | GitHub 仓库地址 |
 
 ---
 
