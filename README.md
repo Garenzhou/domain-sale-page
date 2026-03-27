@@ -1,83 +1,85 @@
 # Domain Sale Page
 
-一个简洁高端的单页网站，用于展示域名待售信息。
+[中文文档](README.zh.md)
+
+A sleek, modern single-page website for listing domain names for sale.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 
 ---
 
-## 快速开始 | Quick Start
+## Quick Start
 
-只需 3 步，1 分钟启动网站：
+Get up and running in 3 steps:
 
-### 步骤 1：复制配置文件
+### Step 1: Copy config file
 
 ```bash
 cp .env.example .env
 ```
 
-### 步骤 2：设置你的邮箱
+### Step 2: Set your email
 
-编辑 `.env` 文件，填入你的联系邮箱：
+Edit `.env` and add your contact email:
 
 ```env
 CONTACT_EMAIL=your-email@example.com
 ```
 
-### 步骤 3：启动
+### Step 3: Start
 
-| 系统 | 命令 |
-|------|------|
-| **Windows** | 双击 `start.bat` |
+| System | Command |
+|--------|---------|
+| **Windows** | Double-click `start.bat` |
 | **Linux/macOS** | `chmod +x start.sh && sudo ./start.sh` |
 
-完成！访问 http://localhost:80 查看网站。
+Done! Visit http://localhost:80 to see your site.
 
 ---
 
-## 功能演示 | Demo
+## Features
 
-| 功能 | 说明 |
-|------|------|
-| 🎨 高端设计 | 暗黑渐变 + 玻璃拟态风格 |
-| 🌍 多语言 | 8种语言，自动检测浏览器语言 |
-| 📱 响应式 | 完美适配手机和电脑 |
-| 📧 一键联系 | 邮箱点击自动打开邮件客户端 |
+| Feature | Description |
+|---------|-------------|
+| 🎨 Premium Design | Dark gradient + glassmorphism UI |
+| 🌍 Multi-language | 8 languages, auto-detect browser language |
+| 📱 Responsive | Perfect for mobile and desktop |
+| 📧 One-click Contact | Email link opens mail client automatically |
 
-**支持的语言：** 🇺🇸 English 🇨🇳 中文 🇯🇵 日本語 🇰🇷 한국어 🇩🇪 Deutsch 🇫🇷 Français 🇪🇸 Español
-
----
-
-## 详细文档 | Detailed Documentation
-
-### 前置要求 | Prerequisites
-
-- Anaconda 或 Miniconda（推荐）
-- 或 Python 3.11+
+**Supported Languages:** 🇺🇸 English 🇨🇳 中文 🇯🇵 日本語 🇰🇷 한국어 🇩🇪 Deutsch 🇫🇷 Français 🇪🇸 Español
 
 ---
 
-### 方式一：使用 .env 文件（推荐）
+## Detailed Documentation
+
+### Prerequisites
+
+- Anaconda or Miniconda (recommended)
+- Or Python 3.11+
+
+---
+
+### Option 1: Using .env file (Recommended)
 
 ```bash
-# 1. 复制示例配置
+# 1. Copy example config
 cp .env.example .env
 
-# 2. 编辑 .env，设置邮箱和端口
+# 2. Edit .env to set email and port
 CONTACT_EMAIL=your-email@example.com
 PORT=80
 
-# 3. 启动
-# Windows: 双击 start.bat
+# 3. Start
+# Windows: Double-click start.bat
 # Linux/macOS: sudo ./start.sh
 ```
 
 ---
 
-### 方式二：命令行传参
+### Option 2: Pass email as argument
 
-无需配置文件，直接在启动时传入邮箱：
+No config file needed, pass email directly when starting:
 
 ```bash
 # Windows
@@ -89,49 +91,49 @@ sudo ./start.sh your-email@example.com
 
 ---
 
-### 方式三：手动启动（开发者）
+### Option 3: Manual start (For developers)
 
 ```bash
-# 1. 创建并激活 conda 环境
+# 1. Create and activate conda environment
 conda env create -f environment.yml
 conda activate domain-sale
 
-# 2. 设置环境变量
+# 2. Set environment variables
 export CONTACT_EMAIL=your-email@example.com
 export PORT=80
 
-# 3. 启动（二选一）
-# 开发模式：
+# 3. Start (choose one)
+# Development mode:
 python app.py
 
-# 生产模式（Gunicorn）：
+# Production mode (Gunicorn):
 gunicorn --bind 0.0.0.0:80 --workers 4 wsgi:app
 ```
 
 ---
 
-## Linux/macOS 服务管理
+## Linux/macOS Service Management
 
-| 脚本 | 功能 |
-|------|------|
-| `start.sh` | 启动服务（可选择前台/后台） |
-| `stop.sh` | 停止服务 |
-| `status.sh` | 查看服务状态 |
+| Script | Function |
+|--------|----------|
+| `start.sh` | Start service (foreground or background) |
+| `stop.sh` | Stop service |
+| `status.sh` | Check service status |
 
-### 后台启动
+### Start in background
 
 ```bash
 sudo ./start.sh your-email@example.com
-# 选择 2 (后台模式) 和 2 (Gunicorn)
+# Select 2 (background mode) and 2 (Gunicorn)
 ```
 
-### 查看状态
+### Check status
 
 ```bash
 ./status.sh
 ```
 
-### 停止服务
+### Stop service
 
 ```bash
 sudo ./stop.sh
@@ -139,59 +141,59 @@ sudo ./stop.sh
 
 ---
 
-## 手动命令参考
+## Manual Command Reference
 
 ```bash
-# 后台启动
+# Start in background
 export CONTACT_EMAIL=your-email@example.com
 sudo nohup gunicorn --bind 0.0.0.0:80 --workers 4 --daemon --pid gunicorn.pid wsgi:app
 
-# 查看进程
+# View process
 ps aux | grep gunicorn
 ss -tlnp | grep :80
 
-# 停止进程
-sudo kill -15 <PID>    # 优雅停止
-sudo kill -9 <PID>     # 强制停止
+# Stop process
+sudo kill -15 <PID>    # Graceful stop
+sudo kill -9 <PID>     # Force stop
 
-# 查看日志
+# View logs
 tail -f gunicorn.log
 ```
 
 ---
 
-## 文件说明
+## Files
 
-| 文件 | 说明 |
-|------|------|
-| `app.py` | Flask 应用主文件 |
-| `wsgi.py` | WSGI 入口（用于 Gunicorn） |
-| `requirements.txt` | pip 依赖列表 |
-| `environment.yml` | Conda 环境配置 |
-| `start.bat` | Windows 启动脚本 |
-| `start.sh` | Linux/macOS 启动脚本 |
-| `stop.sh` | Linux/macOS 停止脚本 |
-| `status.sh` | Linux/macOS 状态查看脚本 |
-| `.env.example` | 环境变量示例 |
-| `.gitignore` | Git 忽略配置 |
-
----
-
-## 配置说明
-
-| 环境变量 | 默认值 | 说明 |
-|----------|--------|------|
-| `CONTACT_EMAIL` | `your-email@example.com` | 联系邮箱 |
-| `PORT` | `80` | 服务端口 |
+| File | Description |
+|------|-------------|
+| `app.py` | Flask application main file |
+| `wsgi.py` | WSGI entry point (for Gunicorn) |
+| `requirements.txt` | pip dependencies |
+| `environment.yml` | Conda environment config |
+| `start.bat` | Windows startup script |
+| `start.sh` | Linux/macOS startup script |
+| `stop.sh` | Linux/macOS stop script |
+| `status.sh` | Linux/macOS status check script |
+| `.env.example` | Environment variables example |
+| `.gitignore` | Git ignore config |
 
 ---
 
-## 端口说明
+## Configuration
 
-默认使用 **80** 端口。
+| Env Var | Default | Description |
+|---------|---------|-------------|
+| `CONTACT_EMAIL` | `your-email@example.com` | Contact email |
+| `PORT` | `80` | Server port |
 
-- Linux/macOS 绑定 80 端口需要 root 权限（使用 `sudo`）
-- 如权限不足，可切换到其他端口：
+---
+
+## Port Notes
+
+Default port is **80**.
+
+- Linux/macOS binding port 80 requires root privileges (use `sudo`)
+- If permission denied, switch to another port:
 
 ```bash
 export PORT=5000
@@ -200,27 +202,27 @@ python app.py
 
 ---
 
-## 技术栈
+## Tech Stack
 
-- **Web 框架**: Flask
-- **应用服务器**: Gunicorn
-- **环境管理**: Conda
-- **字体**: Google Fonts (Playfair Display, Inter)
+- **Web Framework**: Flask
+- **Application Server**: Gunicorn
+- **Environment Management**: Conda
+- **Fonts**: Google Fonts (Playfair Display, Inter)
 
 ---
 
 ## Star History
 
-如果这个项目对你有帮助，请给个 Star ⭐
+If you find this project helpful, please give it a Star ⭐
 
 ---
 
-## 贡献
+## Contributing
 
-欢迎提交 Issue 和 PR！
+Issues and PRs are welcome!
 
 ---
 
 ## License
 
-MIT License - 详见 [LICENSE](LICENSE) 文件。
+MIT License - see [LICENSE](LICENSE) file for details.
