@@ -1,6 +1,9 @@
 # Environment files (contains personal info)
 .env
 
+# Virtual environment
+.venv/
+
 # Log files
 *.log
 
